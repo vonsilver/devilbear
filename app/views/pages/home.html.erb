@@ -1,7 +1,14 @@
 <div class="jumbotron center">
 	<h1>Are they good, or are they bad?</h1>
-	<p>
-		<%= link_to "Good", "#", class: "btn btn-default btn-lg" %>
-      	<%= link_to "Bad", "#", class: "btn btn-primary btn-lg" %>
-	</p>
+	<% if user_signed_in? %>
+		<p>
+			<%= link_to "Good", "#", class: "btn btn-default btn-lg" %>
+    		<%= link_to "Bad", "#", class: "btn btn-primary btn-lg" %>
+    	</p>
+    <% else %>
+    	<p>
+      		<%= link_to "Login", new_user_session_path, class: "btn btn-default btn-lg" %>
+      		<%= link_to "Sign Up to find out", new_user_registration_path, class: "btn btn-primary btn-lg" %>
+		</p>
+	<% end %>
 </div>
